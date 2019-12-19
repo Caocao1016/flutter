@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/photo_img.dart';
 
 class LoginPage extends StatefulWidget {
-
-
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -54,26 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           '账号',
                         ),
-                        Expanded(
-                          child: TextField(
-                            decoration: new InputDecoration(
-                              contentPadding: const EdgeInsets.all(10.0),
-                              hintText: "请输入手机号",
-                              border: InputBorder.none,
-                            ),
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 16.0),
-                            onSubmitted: (value) {
-                              print("------------文字提交触发（键盘按键）--");
-                            },
-                            onEditingComplete: () {
-                              print("----------------编辑完成---");
-                            },
-                            onChanged: (value) {
-                              print("----------------输入框中内容为:$value--");
-                            },
-                          ),
-                        )
+                        buildExpanded()
                       ],
                     ),
                   ),
@@ -88,26 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           '账号',
                         ),
-                        Expanded(
-                          child: TextField(
-                            decoration: new InputDecoration(
-                              contentPadding: const EdgeInsets.all(10.0),
-                              hintText: "请输入手机号",
-                              border: InputBorder.none,
-                            ),
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 16.0),
-                            onSubmitted: (value) {
-                              print("------------文字提交触发（键盘按键）--");
-                            },
-                            onEditingComplete: () {
-                              print("----------------编辑完成---");
-                            },
-                            onChanged: (value) {
-                              print("----------------输入框中内容为:$value--");
-                            },
-                          ),
-                        )
+                        buildExpanded()
                       ],
                     ),
                   ),
@@ -160,5 +118,28 @@ class _LoginPageState extends State<LoginPage> {
             ),
           )),
     );
+  }
+
+  Expanded buildExpanded() {
+    return Expanded(
+                        child: TextField(
+                          decoration: new InputDecoration(
+                            contentPadding: const EdgeInsets.all(10.0),
+                            hintText: "请输入手机号",
+                            border: InputBorder.none,
+                          ),
+                          style:
+                              TextStyle(color: Colors.black, fontSize: 16.0),
+                          onSubmitted: (value) {
+                            print("------------文字提交触发（键盘按键）--");
+                          },
+                          onEditingComplete: () {
+                            print("----------------编辑完成---");
+                          },
+                          onChanged: (value) {
+                            print("----------------输入框中内容为:$value--");
+                          },
+                        ),
+                      );
   }
 }

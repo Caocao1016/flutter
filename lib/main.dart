@@ -5,6 +5,9 @@ import 'package:flutter_app/list.dart';
 import 'package:flutter_app/login_page.dart';
 import 'package:flutter_app/photo_img.dart';
 
+import 'dare_flex.dart';
+import 'drat_stack.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -19,9 +22,11 @@ class MyApp extends StatelessWidget {
       home: new HomeWidget(),
 
       routes: {
-        'login':(context)=>LoginPage(),
-        'list':(context)=>ListPage(),
-        'details':(context)=>HomeWidget(),
+        'login': (context) => LoginPage(),
+        'list': (context) => ListPage(),
+        'details': (context) => HomeWidget(),
+        'flex': (context) => FlexDart(),
+        'stack': (context) => StackDrat(),
       },
     );
   }
@@ -50,7 +55,7 @@ class HomeWidget extends StatelessWidget {
 //                );
 
 
-                var result =  await Navigator.pushNamed(context,'details' );
+                var result = await Navigator.pushNamed(context, 'details');
                 print("路由返回值: $result");
               }),
               RaisedButton(child: Text('登录页'), onPressed: () {
@@ -61,10 +66,8 @@ class HomeWidget extends StatelessWidget {
 //
 //                  ),
 //                );
-              
-              Navigator.pushNamed(context, 'login');
 
-
+                Navigator.pushNamed(context, 'login');
               }),
               RaisedButton(child: Text('选择图片'), onPressed: () {
                 Navigator.push(
@@ -77,6 +80,18 @@ class HomeWidget extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ListPage()),
+                );
+              }),
+              RaisedButton(child: Text('弹性布局（Flex）'), onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FlexDart()),
+                );
+              }),
+              RaisedButton(child: Text('层叠布局 Stack、Positioned'), onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StackDrat()),
                 );
               }),
 
